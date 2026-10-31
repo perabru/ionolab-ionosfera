@@ -1,0 +1,24 @@
+{
+  "origin": "synthetic",
+  "metric_source": "avaliar.py + rotulos_demo.csv",
+  "confusion_matrix": [
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "precision": 0.75,
+  "recall": 0.6,
+  "f1": 0.6666666666666666,
+  "required_output_fields": [
+    "resumo",
+    "fontes",
+    "incertezas",
+    "abstencao"
+  ],
+  "instruction": "A síntese deve citar o arquivo de origem e não atribuir impacto observado a estes dados sintéticos."
+}

@@ -1,0 +1,11 @@
+{
+  "origin": "synthetic",
+  "station": "DEMO-sem-georreferenciamento",
+  "unit": "intensidade-arbitraria",
+  "cadence_seconds": 60,
+  "frame_shape": [
+    4,
+    4
+  ],
+  "purpose": "Exercício de persistência. Não são imagens do INPE."
+}

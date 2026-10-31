@@ -1,0 +1,7 @@
+item,quantidade_planejada,papel,etapa,compatibilidade,modelo_confirmado,preco_cotado_brl,origem_cotacao,data_cotacao
+Computador com Python,1,Pré-processamento e modelos de referência,Essencial,8 a 16 GB como referência de exercícios pequenos; medir custo do conjunto real.,,,,
+Armazenamento para imagens e metadados,1,"Preservar originais, máscaras e resultados",Essencial,,,,,
+Acesso ao conjunto do INPE,Conforme disponibilidade,Dados e contexto de instrumentação,Essencial,"Confirmar acesso, termos e produto por estação; não há API pública presumida.",,,,
+GPU compatível com o framework,1,Experimentos posteriores de deep learning,Opcional,Persistência e os exercícios iniciais funcionam sem GPU.,,,,
+Receptor GNSS com produto científico adequado,1,Comparar indicador de propagação,Pesquisa,"Definir grandeza, taxa, sincronização e calibração antes da seleção.",,,,
+Imageador all-sky científico,1,Possível aquisição óptica própria,Fase futura,"Instrumentação, filtros e calibração pertencem a uma etapa própria; o TCC pode começar com os dados existentes.",,,,

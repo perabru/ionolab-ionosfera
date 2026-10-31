@@ -1,0 +1,17 @@
+id,titulo,autor_instituicao,ano,url,acesso_em,afirmacao_sustentada,limite,licenca
+embrace,INPE: imageador de aeroluminescência,INPE / EMBRACE,,https://www2.inpe.br/climaespacial/AGCImagerViewer/faces/about.xhtml?lan=pt,2026-10-31,,,Leitura gratuita
+scint,Cintilação ionosférica,NOAA / SWPC,,https://www.spaceweather.gov/phenomena/ionospheric-scintillation,2026-10-31,,,Leitura gratuita
+git,Pro Git em português,Git / autores do Pro Git,,https://git-scm.com/book/pt-br/v2,2026-10-31,,,Leitura gratuita
+python,Tutorial oficial de Python,Python Software Foundation,,https://docs.python.org/pt-br/3/tutorial/,2026-10-31,,,Leitura gratuita
+numpy,NumPy para começar,NumPy,,https://numpy.org/doc/stable/user/absolute_beginners.html,2026-10-31,,,Leitura gratuita
+xarray,Xarray: dados multidimensionais,Xarray,,https://docs.xarray.dev/en/stable/,2026-10-31,,,Leitura gratuita
+opencv,OpenCV: módulos e tutoriais,OpenCV,,https://docs.opencv.org/4.x/,2026-10-31,,,Leitura gratuita
+torch,PyTorch: conceitos básicos,PyTorch,,https://docs.pytorch.org/tutorials/beginner/basics/intro.html,2026-10-31,,,Leitura gratuita
+metrics,Métricas e avaliação de modelos,scikit-learn,,https://scikit-learn.org/stable/modules/model_evaluation.html,2026-10-31,,,Leitura gratuita
+ollama,Ollama: saída estruturada,Ollama,,https://docs.ollama.com/capabilities/structured-outputs,2026-10-31,,,Leitura gratuita
+maplibre,MapLibre GL JS,MapLibre,,https://maplibre.org/maplibre-gl-js/docs/,2026-10-31,,,Leitura gratuita
+fastapi,FastAPI: tutorial guiado,FastAPI,,https://fastapi.tiangolo.com/tutorial/,2026-10-31,,,Leitura gratuita
+tests,Playwright: primeiros testes,Playwright / Microsoft,,https://playwright.dev/docs/intro,2026-10-31,,,Leitura gratuita
+zotero,Zotero: guia inicial,Zotero,,https://www.zotero.org/support/quick_start_guide,2026-10-31,,,Leitura gratuita
+abnt,Normas e guias de normalização,Sistema Integrado de Bibliotecas / UFES,,https://biblioteca.ufes.br/normalizacao,2026-10-31,,,Leitura gratuita
+inic,INIC: modelo e submissão,UNIVAP / INIC,,https://www.univap.br/inic/submissao_trabalhos.php,2026-10-31,,,Leitura gratuita
