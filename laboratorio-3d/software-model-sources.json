@@ -1,0 +1,17 @@
+{
+  "authorship": "Geometria procedural original criada para os projetos TCC 2027. Não é CAD de fabricante.",
+  "units": "Aproximadamente 1 unidade para 20 mm nos dispositivos de referência; espaçamento e algumas escalas adaptados para legibilidade.",
+  "limitations": "Imageador conceitual opcional para expansão futura, não réplica de equipamento do INPE nem projeto óptico de fabricação. O TCC começa com imagens e metadados existentes, mediante acesso e termos confirmados. Geometria e lentes intermediárias simplificadas.",
+  "sources": [
+    {
+      "title": "INPE/Clima Espacial — Imageador",
+      "url": "https://www2.inpe.br/climaespacial/AGCImagerViewer/faces/about.xhtml?lan=pt",
+      "used_for": "Princípio do imageador: lente olho de peixe, lentes e filtros, câmera CCD; observação de OI 630 nm."
+    },
+    {
+      "title": "INPE — Aeroluminescência: experimentos",
+      "url": "https://www.gov.br/inpe/pt-br/area-conhecimento/engenharia-e-ciencias-espaciais/cgce/ciencia-espacial/clima-espacial/aeroluminescencia/experimentos",
+      "used_for": "Contexto de emissões ionosféricas e instrumentação all-sky."
+    }
+  ]
+}

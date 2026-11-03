@@ -1,0 +1,390 @@
+{
+  "eyebrow": "IonoLab · laboratório de observação",
+  "headline": "Do céu aos dados.",
+  "intro": "Desenvolva um fluxo reprodutível para estudar estruturas em imagens da ionosfera. A visualização 3D explica a origem óptica da imagem e a separação entre aquisição, processamento e avaliação.",
+  "scope": "O primeiro produto trabalha com arquivos existentes e origem documentada. O imageador all-sky 3D representa uma possível fase futura de aquisição científica; não é uma câmera comum nem um projeto óptico pronto para fabricar. Intensidade em uma imagem não é, por si só, uma medição direta da densidade de plasma.",
+  "stats": [
+    {
+      "value": "8",
+      "label": "etapas de pesquisa"
+    },
+    {
+      "value": "630 nm",
+      "label": "emissão de referência"
+    },
+    {
+      "value": "Persistência",
+      "label": "primeiro baseline"
+    }
+  ],
+  "steps": [
+    {
+      "id": "etapa-1",
+      "title": "Defina a pergunta e a unidade de análise",
+      "kicker": "Planejar",
+      "body": "Separe detecção, segmentação e previsão: são tarefas diferentes, com entradas e critérios próprios. Escolha uma como entrega inicial.",
+      "actions": [
+        "Defina se o objetivo é classificar um frame, delimitar uma estrutura ou prever o próximo estado da imagem. Registre a definição operacional de blob/bubble adotada com a orientação científica.",
+        "Escolha estação, período, emissão óptica, cadência e recorte. Não reúna imagens de instrumentos diferentes sem registrar essa diferença.",
+        "Para previsão, defina instante de emissão, horizonte e quais dados já estarão disponíveis nesse instante.",
+        "Liste os resultados esperados: manifesto do conjunto, rótulos revisados, baseline, avaliação e interface que permita inspecionar erros."
+      ],
+      "check": "Uma ficha descreve entrada, saída, intervalo temporal e critério de sucesso sem depender de uma demonstração visual.",
+      "parts": [
+        "workstation",
+        "storage"
+      ]
+    },
+    {
+      "id": "etapa-2",
+      "title": "Obtenha e catalogue os arquivos",
+      "kicker": "Dados com origem",
+      "body": "Confirme disponibilidade, formato e condições de uso com a fonte. O roteiro não pressupõe uma API universal de imagens do INPE.",
+      "actions": [
+        "Registre URL ou forma de recebimento, instituição, estação, data de acesso e condições de uso. Preserve os arquivos originais em diretório sem edição.",
+        "Crie um manifesto com identificador, tamanho, checksum, horário UTC, exposição, filtro, dimensões e metadados disponíveis. Marque o que não foi informado.",
+        "Verifique formato e codificação antes de escolher o leitor: FITS, imagem convencional e arquivos científicos podem exigir adaptadores diferentes.",
+        "Use manifesto_demo.json e frames_demo.csv para aprender o contrato. Esses arquivos são sintéticos, em grade 4×4, e não são observações do INPE."
+      ],
+      "check": "Cada frame pode ser relacionado ao original, ao horário e ao instrumento, ou tem suas lacunas de metadados declaradas.",
+      "parts": [
+        "storage",
+        "workstation"
+      ]
+    },
+    {
+      "id": "etapa-3",
+      "title": "Entenda o caminho óptico",
+      "kicker": "Instrumentação",
+      "body": "A cena separa base, óptica, filtro e sensor para explicar como a emissão é registrada. A instrumentação real requer especificação e calibração próprias.",
+      "actions": [
+        "Observe a lente de grande campo, a seleção espectral e o detector. O INPE utiliza a emissão OI 630,0 nm no estudo de irregularidades ionosféricas.",
+        "Relacione faixa espectral, tempo de exposição, sensibilidade e geometria aos metadados que o processamento recebe.",
+        "Trate nuvens, lua, saturação, horizonte e artefatos como condições de qualidade, não automaticamente como estruturas ionosféricas.",
+        "Mantenha a aquisição óptica própria como etapa futura quando o TCC usar arquivos existentes. A troca por webcam ou lente genérica não garante o mesmo observável científico."
+      ],
+      "check": "A equipe explica o que o instrumento observa e quais fatores podem alterar a imagem.",
+      "parts": [
+        "instrument_base",
+        "optics",
+        "filter",
+        "sensor"
+      ]
+    },
+    {
+      "id": "etapa-4",
+      "title": "Prepare imagens sem apagar a evidência",
+      "kicker": "Pré-processar",
+      "body": "Cada transformação precisa poder ser repetida. Separe correção instrumental, máscara de qualidade e normalização para o algoritmo.",
+      "actions": [
+        "Defina leitor e validação de dimensões, canais, orientação e escala. Não converta o original para uma figura de tela e descarte os dados científicos.",
+        "Aplique dark, flat ou correção geométrica apenas quando houver referência e procedimento adequados ao instrumento. Guarde parâmetros e versões.",
+        "Crie máscaras para pixels inválidos, horizonte, saturação e condições rejeitadas. Mantenha a razão da rejeição ligada ao frame.",
+        "Para mapear azimute, elevação ou coordenadas, use a calibração real. Uma projeção baseada apenas na aparência do círculo não produz georreferenciamento validado."
+      ],
+      "check": "O pipeline recria o mesmo derivado a partir do original e apresenta a máscara usada no cálculo.",
+      "parts": [
+        "sensor",
+        "workstation",
+        "storage"
+      ]
+    },
+    {
+      "id": "etapa-5",
+      "title": "Crie rótulos e divisão temporal",
+      "kicker": "Preparar avaliação",
+      "body": "Os rótulos de referência e a separação dos conjuntos determinam o significado das métricas. Frames próximos podem compartilhar quase toda a informação.",
+      "actions": [
+        "Defina regras de anotação com exemplos, casos ambíguos e revisão por pessoa capacitada. Registre autoria, versão e divergências.",
+        "Separe por noite, campanha ou estação conforme a pergunta. Mantenha sequências correlacionadas no mesmo grupo e o teste temporal após o treino quando a tarefa exigir previsão futura.",
+        "Ajuste normalização, seleção de parâmetros e limiares somente no desenvolvimento. Preserve um teste final sem participação nessas decisões.",
+        "Ao formar janelas, confira se nenhum frame futuro entrou como entrada. Registre os identificadores das amostras em cada partição."
+      ],
+      "check": "O manifesto de divisão demonstra que uma mesma sequência não vazou entre treino e teste.",
+      "parts": [
+        "workstation",
+        "storage"
+      ]
+    },
+    {
+      "id": "etapa-6",
+      "title": "Implemente um baseline antes do modelo complexo",
+      "kicker": "Modelar",
+      "body": "A persistência prevê que o próximo frame será igual ao último disponível. Ela oferece uma comparação simples para medir o ganho de um método mais sofisticado.",
+      "actions": [
+        "Execute prever_persistencia.py e confira emissão, alvo e MAE do exemplo. O programa usa o frame observado para prever um frame posterior.",
+        "Adapte a análise aos dados reais, respeitando máscara e unidade. Compare todo método no mesmo conjunto e no mesmo horizonte.",
+        "Se estudar advecção ou redes neurais, registre hiperparâmetros, sementes, versão dos dados e custo de execução. Avalie o ganho em relação à persistência.",
+        "Use LLM, quando previsto, para organizar explicações apoiadas em dados e referências. Ele não substitui o algoritmo de medição, o rótulo científico nem a avaliação independente."
+      ],
+      "check": "O novo método é comparado a um baseline reproduzível, inclusive quando não supera esse baseline.",
+      "parts": [
+        "workstation"
+      ],
+      "code": {
+        "language": "bash",
+        "text": "cd materiais\npython prever_persistencia.py\npython avaliar.py"
+      }
+    },
+    {
+      "id": "etapa-7",
+      "title": "Avalie acertos, erros e condições",
+      "kicker": "Medir",
+      "body": "Uma única média pode esconder classes raras ou noites difíceis. Mostre números e exemplos que permitam entender o comportamento do método.",
+      "actions": [
+        "Na classificação, apresente matriz de confusão, suporte, precisão e recall por classe. No exercício, linhas são verdade e colunas são previsão.",
+        "Na segmentação, compare máscaras com métricas como IoU e examine bordas e estruturas pequenas. Na previsão de intensidade, use erro na unidade correta e no horizonte definido.",
+        "Separe resultados por estação, noite e qualidade quando houver amostra suficiente. Mostre casos de falso positivo, falso negativo e resultado inconclusivo.",
+        "Registre tempo de execução, memória e limites do conjunto. Não descreva um erro baixo no CSV sintético como capacidade de previsão operacional."
+      ],
+      "check": "O relatório permite reproduzir as métricas e inspecionar os arquivos que originaram cada erro.",
+      "parts": [
+        "workstation",
+        "storage"
+      ]
+    },
+    {
+      "id": "etapa-8",
+      "title": "Construa a interface e feche o experimento",
+      "kicker": "Entregar",
+      "body": "A interface é uma ferramenta para inspecionar resultados. Ela deve preservar a diferença entre imagem original, dado processado, previsão e anotação.",
+      "actions": [
+        "Implemente escolha de sessão, linha temporal, original, máscara, resultado e legenda de unidades. Mostre status de qualidade e metadados.",
+        "No painel de previsão, exiba instante de emissão e horizonte, além do frame alvo observado quando ele já existir.",
+        "Exporte manifesto, métricas, versões e figuras com identificação da fonte. Mantenha os arquivos necessários para repetir o experimento.",
+        "Prepare monografia e artigo com método, baseline, conjunto, validação e limitações. Identifique claramente o que foi simulado, desenvolvido e ensaiado."
+      ],
+      "check": "Um resultado do painel pode ser rastreado até o original, a configuração e o cálculo de avaliação.",
+      "parts": [
+        "workstation",
+        "storage",
+        "sensor"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Estação de análise",
+      "model": "Computador com Python",
+      "quantity": "1",
+      "role": "Importar imagens, processar e avaliar.",
+      "selection": "Os exercícios iniciais usam CPU; dimensionar por conjunto e método.",
+      "sourceUrl": "https://www.python.org/",
+      "sourceLabel": "Python"
+    },
+    {
+      "name": "Arquivos de observação",
+      "model": "Conjunto INPE/EMBRACE ou outra fonte documentada",
+      "quantity": "Por recorte",
+      "role": "Entrada científica do experimento.",
+      "selection": "Confirmar produto, acesso, termos, estação e metadados.",
+      "sourceUrl": "https://www.gov.br/inpe/pt-br/area-conhecimento/unidade-sul/heliofisica-aeronomia-e-clima-espacial",
+      "sourceLabel": "Instrumentação e dados INPE"
+    },
+    {
+      "name": "Preservação",
+      "model": "Disco de trabalho e cópia independente",
+      "quantity": "1 conjunto",
+      "role": "Originais, derivados, rótulos e manifestos.",
+      "selection": "Conferir checksums e restauração.",
+      "sourceUrl": "https://docs.python.org/3/library/hashlib.html",
+      "sourceLabel": "Hashes de arquivos"
+    },
+    {
+      "name": "Imageador all-sky",
+      "model": "Instrumento científico representativo",
+      "quantity": "Fase futura",
+      "role": "Aquisição óptica de emissões atmosféricas.",
+      "selection": "Não é necessário para começar com arquivos existentes.",
+      "sourceUrl": "https://www.gov.br/inpe/pt-br/area-conhecimento/engenharia-e-ciencias-espaciais/cgce/ciencia-espacial/clima-espacial/aeroluminescencia/experimentos",
+      "sourceLabel": "Experimentos INPE"
+    },
+    {
+      "name": "Conjunto óptico",
+      "model": "Grande campo, filtro e detector compatíveis",
+      "quantity": "Fase futura",
+      "role": "Formar e registrar a imagem na faixa escolhida.",
+      "selection": "Seleção, montagem e calibração são um projeto de instrumentação próprio.",
+      "sourceUrl": "https://www.gov.br/inpe/pt-br/area-conhecimento/unidade-sul/heliofisica-aeronomia-e-clima-espacial",
+      "sourceLabel": "Caminho de observação"
+    },
+    {
+      "name": "Aceleração computacional",
+      "model": "GPU compatível com o framework",
+      "quantity": "Opcional",
+      "role": "Experimentos de modelos mais complexos.",
+      "selection": "Adotar somente após medir a necessidade; não exigida pelo baseline.",
+      "sourceUrl": "https://pytorch.org/",
+      "sourceLabel": "PyTorch"
+    }
+  ],
+  "connections": [
+    {
+      "to": "Óptica e filtro",
+      "protocol": "Caminho óptico",
+      "detail": "Representação conceitual da observação, não instrução de construção da óptica.",
+      "type": "optical",
+      "from": "Emissão atmosférica"
+    },
+    {
+      "to": "Detector",
+      "protocol": "Imagem filtrada",
+      "detail": "Exposição, sensibilidade e calibração influenciam a aquisição.",
+      "type": "optical",
+      "from": "Óptica selecionada"
+    },
+    {
+      "to": "Armazenamento original",
+      "protocol": "Arquivo + metadados",
+      "detail": "Recebimento documentado; não se pressupõe uma API universal.",
+      "type": "data",
+      "from": "Fonte de arquivos / instrumento"
+    },
+    {
+      "to": "Pré-processamento",
+      "protocol": "Leitor + configuração",
+      "detail": "Transformações versionadas e máscara de validade.",
+      "type": "data",
+      "from": "Original"
+    },
+    {
+      "to": "Baseline / modelo",
+      "protocol": "Entrada causal",
+      "detail": "O alvo futuro não pode fazer parte da entrada disponível.",
+      "type": "data",
+      "from": "Conjunto separado por tempo"
+    },
+    {
+      "to": "Avaliação",
+      "protocol": "Métricas e evidências",
+      "detail": "Mesmo conjunto, máscara e horizonte para comparar métodos.",
+      "type": "data",
+      "from": "Previsão + referência"
+    },
+    {
+      "to": "Painel de inspeção",
+      "protocol": "HTTPS / arquivo exportado",
+      "detail": "Original, processamento e previsão claramente identificados.",
+      "type": "network",
+      "from": "Resultados"
+    }
+  ],
+  "stack": [
+    {
+      "name": "Python + NumPy / OpenCV",
+      "role": "Leitura, máscaras e transformações.",
+      "href": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html"
+    },
+    {
+      "name": "Astropy / xarray",
+      "role": "Arquivos científicos conforme o formato recebido.",
+      "href": "https://docs.astropy.org/en/stable/io/fits/"
+    },
+    {
+      "name": "scikit-learn",
+      "role": "Divisão de avaliação e métricas.",
+      "href": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+    },
+    {
+      "name": "PyTorch",
+      "role": "Modelos posteriores ao baseline simples.",
+      "href": "https://pytorch.org/"
+    },
+    {
+      "name": "FastAPI + Plotly",
+      "role": "Consulta dos experimentos e inspeção temporal.",
+      "href": "https://fastapi.tiangolo.com/"
+    }
+  ],
+  "deliverables": [
+    "Manifesto de dados com origem, horário, instrumento e checksum.",
+    "Protocolo de anotação e partições sem vazamento temporal.",
+    "Pipeline reprodutível com máscaras e versões.",
+    "Baseline e comparação de métodos no mesmo horizonte.",
+    "Painel de inspeção e relatório com exemplos de erro."
+  ],
+  "checks": [
+    "Arquivos sintéticos identificados e separados dos observacionais.",
+    "Nenhum frame futuro aparece na entrada de previsão.",
+    "Mesma noite ou sequência correlacionada não vaza entre conjuntos.",
+    "Métricas informam tarefa, suporte, unidade e máscara.",
+    "Câmera futura não é apresentada como equipamento já construído ou calibrado."
+  ],
+  "references": [
+    {
+      "title": "INPE · experimentos de aeroluminescência",
+      "url": "https://www.gov.br/inpe/pt-br/area-conhecimento/engenharia-e-ciencias-espaciais/cgce/ciencia-espacial/clima-espacial/aeroluminescencia/experimentos",
+      "why": "Emissões e estudo de irregularidades ionosféricas."
+    },
+    {
+      "title": "INPE · imageador all-sky",
+      "url": "https://www.gov.br/inpe/pt-br/area-conhecimento/unidade-sul/heliofisica-aeronomia-e-clima-espacial",
+      "why": "Instrumentação, contexto físico e acesso a dados."
+    },
+    {
+      "title": "Astropy · FITS",
+      "url": "https://docs.astropy.org/en/stable/io/fits/",
+      "why": "Leitura de arquivos científicos quando esse formato estiver presente."
+    },
+    {
+      "title": "OpenCV · calibração",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "why": "Modelos de câmera e transformação geométrica."
+    },
+    {
+      "title": "scikit-learn · TimeSeriesSplit",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "why": "Separação temporal para avaliação."
+    },
+    {
+      "title": "scikit-learn · vazamento de dados",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html#data-leakage",
+      "why": "Ajuste de transformações apenas no conjunto apropriado."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Preciso comprar uma câmera para iniciar o TCC?",
+      "a": "Não. O primeiro fluxo usa arquivos existentes com origem e condições de uso confirmadas. O imageador representa uma etapa de aquisição própria que pode ficar como trabalho futuro."
+    },
+    {
+      "q": "Uma câmera comum enxerga as mesmas estruturas?",
+      "a": "A aquisição científica depende de sensibilidade, exposição, filtro e calibração adequados à emissão observada. Aparência semelhante de uma câmera não comprova essa capacidade."
+    },
+    {
+      "q": "O código já prevê eventos reais do INPE?",
+      "a": "Os scripts do kit demonstram persistência e cálculo de métricas em dados sintéticos. O resultado científico exige adaptação, conjunto observacional e avaliação próprios."
+    },
+    {
+      "q": "Por que não embaralhar todos os frames?",
+      "a": "Frames próximos compartilham informação e podem facilitar artificialmente o teste. A divisão deve respeitar tempo, noite, campanha ou estação conforme a pergunta."
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Kit de estudos",
+      "href": "../materiais/kit-estudos-ionolab.zip",
+      "detail": "Frames e rótulos sintéticos, manifesto e scripts."
+    },
+    {
+      "label": "Baseline de persistência",
+      "href": "../materiais/prever_persistencia.py",
+      "detail": "Previsão causal no exercício sintético."
+    },
+    {
+      "label": "Avaliação de classificação",
+      "href": "../materiais/avaliar.py",
+      "detail": "Matriz de confusão e métricas binárias."
+    },
+    {
+      "label": "Manifesto demonstrativo",
+      "href": "../materiais/manifesto_demo.json",
+      "detail": "Metadados do conjunto 4×4."
+    },
+    {
+      "label": "Protocolo de experimento",
+      "href": "../materiais/protocolo_experimento.md",
+      "detail": "Pergunta, conjunto e critérios de análise."
+    }
+  ]
+}
