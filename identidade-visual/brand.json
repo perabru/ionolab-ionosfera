@@ -1,0 +1,188 @@
+{
+  "slug": "ionolab-ionosfera",
+  "name": "IonoLab",
+  "short": "IonoLab",
+  "domain": "Análise de imagens da ionosfera",
+  "tagline": "O céu muda. A evidência fica.",
+  "concept": [
+    "Três faixas curvas representam camadas atmosféricas e campos em transformação. Uma interrupção e um ponto de observação introduzem a ideia de realces, depleções e leitura de sinais.",
+    "A marca usa azul elétrico e menta sobre azul-noite, com diagramas luminosos e tipografia nítida. A linguagem visual distingue observação, processamento e interpretação em cada material."
+  ],
+  "personality": [
+    "Investigativo",
+    "Nítido",
+    "Dinâmico"
+  ],
+  "colors": {
+    "bg": "#0B1530",
+    "panel": "#152346",
+    "ink": "#F0F5FF",
+    "muted": "#B5C7E4",
+    "line": "#3F5278",
+    "accent": "#91A9FF",
+    "second": "#5EE8D5",
+    "paper": "#F0F5FF",
+    "dark": "#0B1530"
+  },
+  "palette": [
+    {
+      "name": "Azul noite",
+      "hex": "#0B1530",
+      "role": "Fundos de análise, títulos e versão positiva da marca."
+    },
+    {
+      "name": "Azul elétrico",
+      "hex": "#375DDD",
+      "role": "Marca e faixas de campo em fundos claros."
+    },
+    {
+      "name": "Azul sinal",
+      "hex": "#91A9FF",
+      "role": "Ações e destaques em interfaces escuras."
+    },
+    {
+      "name": "Menta aurora",
+      "hex": "#5EE8D5",
+      "role": "Curvas de sinal e detalhes de observação."
+    },
+    {
+      "name": "Branco espectro",
+      "hex": "#F0F5FF",
+      "role": "Fundo claro e texto em aplicações escuras."
+    }
+  ],
+  "fonts": {
+    "display": "Space Grotesk",
+    "body": "Atkinson Hyperlegible Next",
+    "mono": "JetBrains Mono"
+  },
+  "motif": "Faixas atmosféricas, campo de ondas e pontos de observação.",
+  "graphic_rules": [
+    "Usar faixas curvas paralelas, com espaçamento uniforme e uma interrupção intencional.",
+    "Associar cores de classe a legendas; nunca depender apenas de cor para distinguir resultados.",
+    "Apresentar imagem de origem, processamento e interpretação como etapas visuais separadas.",
+    "Usar eixos, unidades, fonte e indicação de dados sintéticos sempre que houver gráficos."
+  ],
+  "voice": {
+    "do": [
+      "Explicar o que a imagem permite observar.",
+      "Distinguir detecção, previsão e interpretação.",
+      "Nomear a origem, data e limitação dos dados."
+    ],
+    "dont": [
+      "Confundir brilho óptico com densidade absoluta.",
+      "Garantir interrupções de comunicação a partir da imagem.",
+      "Apresentar uma explicação de LLM como validação científica."
+    ],
+    "example": "Compare as imagens, observe os padrões e confira a evidência de cada detecção."
+  },
+  "applications": [
+    "Painel de imagens com comparação entre original e processamento.",
+    "Slide de método com faixas de campo e etapas numeradas.",
+    "Figura científica com legenda, escala, origem e incerteza."
+  ],
+  "cautions": [
+    "A imagem óptica, isoladamente, não mede densidade absoluta nem comprova impacto em rádio ou GNSS.",
+    "Separar resultados observados, simulados e previstos."
+  ],
+  "version": "1.0",
+  "year": 2027,
+  "created": "2026-11-03",
+  "logo": {
+    "concept": "Três arcos de campo, uma faixa interrompida e um ponto de observação expressam camadas e variações do céu.",
+    "grid": "Módulo de 100 × 100 unidades. Curvas entre x=12 e x=88; traço de 6 unidades; ponto de observação com raio de 6 unidades.",
+    "clear_space": "1x em todos os lados; x = 10 unidades do símbolo de 100 × 100. A área externa de proteção não está incluída no arquivo.",
+    "min_width_print_mm": 40,
+    "min_width_digital_px": 180,
+    "symbol_min_px": 32,
+    "symbol_min_print_mm": 10,
+    "unit": 10,
+    "symbol_viewbox": [
+      0,
+      0,
+      100,
+      100
+    ],
+    "positive_colors": [
+      "#375DDD",
+      "#268A83"
+    ],
+    "negative_colors": [
+      "#F0F5FF",
+      "#91A9FF"
+    ],
+    "horizontal_viewbox": [
+      0,
+      0,
+      305.65,
+      100
+    ],
+    "files": [
+      "assets/marca-horizontal.svg",
+      "assets/marca-negativa.svg",
+      "assets/marca-monocromatica.svg",
+      "assets/marca-vertical.svg",
+      "assets/simbolo.svg",
+      "assets/simbolo-negativo.svg",
+      "assets/simbolo-monocromatico.svg",
+      "assets/padrao.svg"
+    ],
+    "color_rules": "A versão positiva usa #375DDD e #268A83 sobre #F0F5FF. A versão negativa usa #F0F5FF e #91A9FF sobre #0B1530. Essas variantes são específicas da marca; não substituir as cores por aproximação. A versão monocromática usa uma única tinta, #0B1530."
+  },
+  "font_files": {
+    "display_regular": "fontes/space-grotesk-regular.ttf",
+    "display_bold": "fontes/space-grotesk-bold.ttf",
+    "body_regular": "fontes/atkinson-hyperlegible-next-regular.ttf",
+    "body_bold": "fontes/atkinson-hyperlegible-next-bold.ttf",
+    "mono_regular": "fontes/jetbrains-mono-regular.ttf"
+  },
+  "font_web_files": {
+    "display": "fontes/space-grotesk.woff",
+    "body": "fontes/atkinson-hyperlegible-next.woff",
+    "mono": "fontes/jetbrains-mono.woff"
+  },
+  "contrast_pairs": [
+    {
+      "label": "Texto principal",
+      "foreground": "#F0F5FF",
+      "background": "#0B1530",
+      "ratio": 16.5,
+      "minimum": 4.5
+    },
+    {
+      "label": "Texto em painel",
+      "foreground": "#F0F5FF",
+      "background": "#152346",
+      "ratio": 14.12,
+      "minimum": 4.5
+    },
+    {
+      "label": "Texto secundário",
+      "foreground": "#B5C7E4",
+      "background": "#0B1530",
+      "ratio": 10.53,
+      "minimum": 4.5
+    },
+    {
+      "label": "Chamada principal",
+      "foreground": "#0B1530",
+      "background": "#91A9FF",
+      "ratio": 8.01,
+      "minimum": 4.5
+    },
+    {
+      "label": "Link de destaque",
+      "foreground": "#91A9FF",
+      "background": "#0B1530",
+      "ratio": 8.01,
+      "minimum": 4.5
+    }
+  ],
+  "font_weights": {
+    "display_regular": 400,
+    "display_bold": 700,
+    "body_regular": 400,
+    "body_bold": 700,
+    "mono_regular": 400
+  }
+}

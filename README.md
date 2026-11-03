@@ -12,6 +12,30 @@ Início em **1º de fevereiro de 2027** · Entrega principal em **30 de julho de
 
 </div>
 
+## Identidade visual 2027
+
+**O céu muda. A evidência fica.**
+
+Três faixas curvas representam camadas atmosféricas e campos em transformação. Uma interrupção e um ponto de observação introduzem a ideia de realces, depleções e leitura de sinais.
+
+**Personalidade:** Investigativo · Nítido · Dinâmico.
+
+[**Explorar o manual visual ↗**](https://perabru.github.io/ionolab-ionosfera/identidade-visual/) · [**Baixar guia PDF**](identidade-visual/guia-identidade-visual.pdf) · [**Baixar kit da marca**](identidade-visual/kit-identidade-visual.zip)
+
+O guia reúne conceito, assinaturas, construção, área de proteção, redução mínima, cores, tipografia, fundos, usos incorretos e aplicações. O kit inclui as marcas em SVG, os arquivos de fontes com suas licenças e os dados da identidade.
+
+| Cor | HEX | Aplicação |
+| --- | --- | --- |
+| Azul noite | `#0B1530` | Fundos de análise, títulos e versão positiva da marca. |
+| Azul elétrico | `#375DDD` | Marca e faixas de campo em fundos claros. |
+| Azul sinal | `#91A9FF` | Ações e destaques em interfaces escuras. |
+| Menta aurora | `#5EE8D5` | Curvas de sinal e detalhes de observação. |
+| Branco espectro | `#F0F5FF` | Fundo claro e texto em aplicações escuras. |
+
+**Tipografia:** Space Grotesk nos títulos, Atkinson Hyperlegible Next nos textos e JetBrains Mono nos dados técnicos.
+
+Estrutura editorial inspirada no [Manual de Identidade Visual de São José dos Campos](https://www.sjc.sp.gov.br/media/aqpbdbrj/14448_e_s7_identidade-visual-psjc.pdf). As marcas e aplicações foram desenvolvidas para este projeto.
+
 ## Aprender para construir
 
 [**Abrir trilha de estudos ↗**](https://perabru.github.io/ionolab-ionosfera/#study)
@@ -27,7 +51,7 @@ O Drive de Pobre foi solicitado e a tentativa de consulta ficou registrada: o ca
 
 ## O planejamento virou a página inicial
 
-O `index.html` é um quadro interativo inspirado no fluxo Kanban. O briefing técnico anterior permanece em [`briefing.html`](briefing.html), com sua identidade visual e documentação preservadas.
+O `index.html` é um quadro interativo inspirado no fluxo Kanban. O briefing técnico anterior permanece em [`briefing.html`](briefing.html), com a identidade visual 2027 aplicada e a documentação preservada.
 
 | Frente | Entrega planejada |
 | --- | --- |
@@ -50,7 +74,7 @@ As datas do INIC 2027 são **metas internas de prontidão**, sem inventar prazo 
 
 ## Abra e continue
 
-Baixe o repositório e abra `index.html`. HTML, CSS, JavaScript e fontes estão incorporados. Nenhuma instalação é necessária para usar o quadro.
+Baixe o repositório e abra `index.html`. HTML, CSS, JavaScript, fontes e símbolo da marca estão incorporados. Nenhuma instalação é necessária para usar o quadro.
 
 ```bash
 git clone https://github.com/perabru/ionolab-ionosfera.git
@@ -68,10 +92,6 @@ A escrita acompanha a pesquisa. Os cartões cobrem estrutura, método, resultado
 O manual institucional e a orientação definem a aplicação final. Este quadro organiza a revisão; não emite certificação automática de conformidade.
 
 [Etapas de escrita, normas e fontes →](docs/monografia-inic.md)
-
-## Identidade preservada
-
-Títulos em **Space Grotesk**, texto em **Atkinson Hyperlegible Next** e dados em **JetBrains Mono**, com fontes incorporadas e licenças preservadas.
 
 ## Arquivos principais
 
